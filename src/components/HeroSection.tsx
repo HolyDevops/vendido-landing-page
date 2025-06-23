@@ -77,17 +77,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onPurchase }) => {
           {/* Right Column - Book Image */}
           <div className="relative">
             <div className="relative bg-gradient-to-br from-brand-red/20 to-transparent rounded-3xl p-8">
-              {/* Placeholder for book mockup */}
-              <div className="aspect-[3/4] bg-gradient-to-br from-brand-red to-red-700 rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/20"></div>
-                <div className="relative z-10 text-center text-white p-8">
-                  <div className="text-4xl font-black mb-4">100%</div>
-                  <div className="text-2xl font-bold mb-2">VENDIDO</div>
-                  <div className="text-sm opacity-80">THIAGO COSAC</div>
-                </div>
-                <div className="absolute bottom-4 right-4 text-xs text-white/60">
-                  [Adicione aqui o mockup do livro]
-                </div>
+              {/* Real book mockup image */}
+              <div className="aspect-[3/4] rounded-2xl shadow-2xl overflow-hidden">
+                <img 
+                  src="/images/book-mockup.jpg" 
+                  alt="Livro 100% Vendido - Thiago Cosac"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
             

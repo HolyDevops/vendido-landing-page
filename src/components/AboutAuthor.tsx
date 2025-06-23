@@ -32,14 +32,13 @@ export const AboutAuthor: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Author image and info */}
           <div className="text-center lg:text-left">
-            {/* Author photo placeholder */}
-            <div className="w-80 h-80 mx-auto lg:mx-0 bg-gradient-to-br from-brand-red to-red-600 rounded-3xl shadow-2xl mb-8 flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-black/20"></div>
-              <div className="relative z-10 text-white text-center">
-                <div className="text-2xl font-bold mb-2">THIAGO</div>
-                <div className="text-2xl font-bold">COSAC</div>
-                <div className="text-sm opacity-80 mt-4">[Foto do autor]</div>
-              </div>
+            {/* Real author photo */}
+            <div className="w-80 h-80 mx-auto lg:mx-0 rounded-3xl shadow-2xl mb-8 overflow-hidden">
+              <img 
+                src="/images/thiago-cosac.png" 
+                alt="Thiago Cosac"
+                className="w-full h-full object-cover"
+              />
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-black text-brand-black mb-6">

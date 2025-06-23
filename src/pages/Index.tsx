@@ -1,12 +1,28 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import { HeroSection } from '../components/HeroSection';
+import { BookContent } from '../components/BookContent';
+import { TargetAudience } from '../components/TargetAudience';
+import { WhatsIncluded } from '../components/WhatsIncluded';
+import { AboutAuthor } from '../components/AboutAuthor';
+import { UrgencySection } from '../components/UrgencySection';
+import { FinalCTA } from '../components/FinalCTA';
 
 const Index = () => {
+  const handlePurchase = () => {
+    // Add purchase logic here
+    console.log('Redirecting to purchase...');
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-brand-off-white">
+      <HeroSection onPurchase={handlePurchase} />
+      <BookContent />
+      <TargetAudience />
+      <WhatsIncluded />
+      <AboutAuthor />
+      <UrgencySection />
+      <FinalCTA onPurchase={handlePurchase} />
     </div>
   );
 };

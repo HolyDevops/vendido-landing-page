@@ -1,95 +1,91 @@
 
 import React from 'react';
-import { ShoppingCart, Clock, Shield } from 'lucide-react';
+import { Download, CheckCircle, Star } from 'lucide-react';
 
-interface HeroSectionProps {
-  onPurchase: () => void;
-}
-
-export const HeroSection: React.FC<HeroSectionProps> = ({ onPurchase }) => {
+export const HeroSection: React.FC = () => {
   return (
-    <section className="relative bg-gradient-to-br from-brand-black via-gray-900 to-brand-black text-white py-20 overflow-hidden">
+    <section className="relative bg-white py-20 overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-red/10 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
           <div className="space-y-8 animate-fade-in-up">
-            {/* Urgency Badge */}
-            <div className="inline-flex items-center gap-2 bg-brand-red/20 border border-brand-red px-4 py-2 rounded-full">
-              <Clock className="w-4 h-4 text-brand-red" />
-              <span className="text-sm font-semibold text-brand-red">PRÉ-VENDA COM 33% DE DESCONTO</span>
+            {/* Book Author */}
+            <div className="inline-flex items-center gap-2 text-gray-600">
+              <Star className="w-4 h-4 text-brand-red" />
+              <span className="text-sm font-medium">por Thiago Cosac</span>
             </div>
 
             {/* Main Title */}
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-black leading-tight">
-                <span className="gradient-text">100%</span>
+            <div className="space-y-6">
+              <h1 className="text-4xl lg:text-6xl font-black leading-tight text-brand-black">
+                Receba agora o{' '}
+                <span className="gradient-text">Checklist Oficial</span>
                 <br />
-                <span className="text-white">VENDIDO</span>
+                do Livro 100% Vendido
               </h1>
-              <p className="text-xl lg:text-2xl text-gray-300 font-medium leading-relaxed">
-                O método definitivo para vender 100% dos seus lançamentos imobiliários e faturar milhões
+              
+              <p className="text-xl lg:text-2xl text-gray-600 font-medium leading-relaxed">
+                Um passo a passo prático com as perguntas que vão transformar o jeito 
+                que você lança seus empreendimentos imobiliários.
               </p>
             </div>
 
-            {/* Price Section */}
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 space-y-4">
-              <div className="flex items-center gap-4">
-                <span className="text-lg text-gray-400 line-through">De R$ 149,99</span>
-                <span className="urgency-badge">33% OFF</span>
+            {/* Benefits */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" />
+                <span className="text-lg text-gray-700">
+                  Metodologia testada em mais de 50 empreendimentos
+                </span>
               </div>
-              <div className="text-4xl font-black text-brand-red">
-                R$ 99,99
+              <div className="flex items-center gap-3">
+                <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" />
+                <span className="text-lg text-gray-700">
+                  Checklist prático para aplicar imediatamente
+                </span>
               </div>
-              <div className="flex items-center gap-2 text-green-400">
-                <Shield className="w-5 h-5" />
-                <span className="font-semibold">FRETE GRÁTIS para todo o Brasil</span>
+              <div className="flex items-center gap-3">
+                <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" />
+                <span className="text-lg text-gray-700">
+                  Material exclusivo baseado no livro
+                </span>
               </div>
             </div>
 
-            {/* CTA Button */}
-            <button 
-              onClick={onPurchase}
-              className="btn-primary-large w-full lg:w-auto group relative overflow-hidden"
-            >
-              <div className="flex items-center justify-center gap-3">
-                <ShoppingCart className="w-6 h-6" />
-                <span>QUERO GARANTIR MEU EXEMPLAR COM DESCONTO</span>
+            {/* Download CTA */}
+            <div className="bg-brand-red/10 border border-brand-red/20 rounded-2xl p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <Download className="w-6 h-6 text-brand-red" />
+                <span className="text-lg font-bold text-brand-red">
+                  MATERIAL GRATUITO
+                </span>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-700 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
-            </button>
-
-            {/* Trust indicators */}
-            <div className="flex flex-wrap gap-6 text-sm text-gray-400">
-              <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4" />
-                <span>Pagamento 100% seguro</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                <span>Entrega em até 7 dias úteis</span>
-              </div>
+              <p className="text-gray-700">
+                Baixe agora o checklist oficial e tenha em mãos as perguntas 
+                essenciais para o sucesso dos seus lançamentos.
+              </p>
             </div>
           </div>
 
           {/* Right Column - Book Image */}
           <div className="relative">
-            <div className="relative bg-gradient-to-br from-brand-red/20 to-transparent rounded-3xl p-8">
+            <div className="relative bg-gradient-to-br from-brand-red/10 to-transparent rounded-3xl p-8">
               {/* Real book mockup image */}
-              <div className="aspect-[3/4] rounded-2xl shadow-2xl overflow-hidden">
+              <div className="aspect-[3/4] rounded-2xl shadow-2xl overflow-hidden bg-white">
                 <img 
                   src="/images/book-mockup.jpg" 
                   alt="Livro 100% Vendido - Thiago Cosac"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain object-center p-4"
                 />
               </div>
             </div>
             
             {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 bg-brand-red text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse">
-              LANÇAMENTO
+            <div className="absolute -top-4 -right-4 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-bold animate-pulse">
+              GRÁTIS
             </div>
           </div>
         </div>

@@ -1,28 +1,19 @@
 
 import React from 'react';
 import { HeroSection } from '../components/HeroSection';
-import { BookContent } from '../components/BookContent';
-import { TargetAudience } from '../components/TargetAudience';
-import { WhatsIncluded } from '../components/WhatsIncluded';
+import { LeadCaptureForm } from '../components/LeadCaptureForm';
 import { AboutAuthor } from '../components/AboutAuthor';
-import { UrgencySection } from '../components/UrgencySection';
-import { FinalCTA } from '../components/FinalCTA';
+import { TestimonialSection } from '../components/TestimonialSection';
+import { Footer } from '../components/Footer';
 
 const Index = () => {
-  const handlePurchase = () => {
-    // Add purchase logic here
-    console.log('Redirecting to purchase...');
-  };
-
   return (
-    <div className="min-h-screen bg-brand-off-white">
-      <HeroSection onPurchase={handlePurchase} />
-      <BookContent />
-      <TargetAudience />
-      <WhatsIncluded />
+    <div className="min-h-screen bg-white">
+      <HeroSection />
+      <LeadCaptureForm />
       <AboutAuthor />
-      <UrgencySection />
-      <FinalCTA onPurchase={handlePurchase} />
+      <TestimonialSection />
+      <Footer />
     </div>
   );
 };

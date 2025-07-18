@@ -1,19 +1,13 @@
 
 import React from 'react';
 import { HeroSection } from '../components/HeroSection';
-import { LeadCaptureForm } from '../components/LeadCaptureForm';
-import { AboutAuthor } from '../components/AboutAuthor';
-import { TestimonialSection } from '../components/TestimonialSection';
-import { Footer } from '../components/Footer';
+import { SimpleFooter } from '../components/SimpleFooter';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-brand-black">
       <HeroSection />
-      <LeadCaptureForm />
-      <AboutAuthor />
-      <TestimonialSection />
-      <Footer />
+      <SimpleFooter />
     </div>
   );
 };

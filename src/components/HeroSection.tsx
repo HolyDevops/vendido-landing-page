@@ -35,8 +35,9 @@ export const HeroSection: React.FC = () => {
     
     console.log('Lead captured:', data);
     
-    // Here you would integrate with your email automation service
-    // Example: await sendToActiveCompaign(data);
+    // TODO: Integração com Google Sheets
+    // Aqui você conectará com a API do Google Sheets para salvar os dados
+    // Exemplo: await sendToGoogleSheets(data);
     
     setIsLoading(false);
     setIsSubmitted(true);
@@ -67,12 +68,30 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="min-h-screen bg-background py-12 px-4 relative">
       {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-3 h-3 bg-primary rounded-full opacity-60"></div>
-      <div className="absolute top-40 right-20 w-2 h-2 bg-primary rounded-full opacity-40"></div>
-      <div className="absolute bottom-40 left-20 w-4 h-4 bg-primary rounded-full opacity-30"></div>
+      <div className="absolute top-20 left-10 w-3 h-3 bg-brand-red rounded-full opacity-60"></div>
+      <div className="absolute top-40 right-20 w-2 h-2 bg-brand-red rounded-full opacity-40"></div>
+      <div className="absolute bottom-40 left-20 w-4 h-4 bg-brand-red rounded-full opacity-30"></div>
       
       <div className="max-w-4xl mx-auto">
-        {/* Book Cover */}
+        {/* Main Title FIRST */}
+        <div className="text-center mb-12">
+          <h1 className="text-5xl lg:text-7xl font-black leading-tight text-foreground mb-6">
+            100%{' '}
+            <span className="text-brand-red">VENDIDO</span>
+          </h1>
+          
+          <h2 className="text-2xl lg:text-3xl font-bold text-foreground leading-tight mb-8">
+            Receba agora o{' '}
+            <span className="text-brand-red">Checklist Oficial</span>
+          </h2>
+          
+          <p className="text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto mb-12">
+            Um passo a passo prático com as perguntas que vão transformar o jeito 
+            que você lança seus empreendimentos imobiliários.
+          </p>
+        </div>
+
+        {/* Book Cover SECOND */}
         <div className="text-center mb-12">
           <img 
             src="/images/book-mockup.jpg" 
@@ -81,27 +100,9 @@ export const HeroSection: React.FC = () => {
           />
           
           {/* Author */}
-          <div className="flex items-center justify-center gap-2 text-muted-foreground mb-6">
-            <Star className="w-4 h-4 text-primary" />
+          <div className="flex items-center justify-center gap-2 text-muted-foreground mb-8">
+            <Star className="w-4 h-4 text-brand-red" />
             <span className="text-sm font-medium">por Thiago Cosac</span>
-          </div>
-
-          {/* Main Title */}
-          <div className="space-y-6 mb-12">
-            <h1 className="text-5xl lg:text-7xl font-black leading-tight text-foreground">
-              100%{' '}
-              <span className="text-primary">VENDIDO</span>
-            </h1>
-            
-            <h2 className="text-2xl lg:text-3xl font-bold text-foreground leading-tight">
-              Receba agora o{' '}
-              <span className="text-primary">Checklist Oficial</span>
-            </h2>
-            
-            <p className="text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto">
-              Um passo a passo prático com as perguntas que vão transformar o jeito 
-              que você lança seus empreendimentos imobiliários.
-            </p>
           </div>
         </div>
 
@@ -160,7 +161,7 @@ export const HeroSection: React.FC = () => {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full h-14 text-lg font-bold bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full h-14 text-lg font-bold bg-brand-red hover:bg-brand-red/90 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 {isLoading ? (
                   <>
@@ -190,7 +191,7 @@ export const HeroSection: React.FC = () => {
             <div className="text-center md:text-left">
               <h3 className="text-xl font-bold text-foreground mb-2">Thiago Cosac</h3>
               <p className="text-muted-foreground leading-relaxed">
-                É especialista em lançamentos imobiliários e fundador da +VGV, com mais de 50 empreendimentos lançados em todo o Brasil.
+                É especialista em lançamentos imobiliários e fundador da +VGV Brasil, com mais de 50 empreendimentos lançados em todo o Brasil.
                 O livro 100% Vendido reúne seu método completo, da escolha do terreno à última unidade entregue.
               </p>
             </div>
@@ -205,31 +206,6 @@ export const HeroSection: React.FC = () => {
           <cite className="text-muted-foreground font-medium mt-4 block">
             — Thiago Cosac
           </cite>
-        </div>
-
-        {/* Footer with institutional links */}
-        <div className="text-center">
-          <p className="text-sm text-muted-foreground mb-4">
-            Conheça mais sobre o trabalho do autor:
-          </p>
-          <div className="flex justify-center gap-6">
-            <a 
-              href="https://maisvgv.com.br" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-primary hover:text-primary/80 font-medium transition-colors"
-            >
-              Site +VGV
-            </a>
-            <a 
-              href="https://linkedin.com/in/thiagocosac" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-primary hover:text-primary/80 font-medium transition-colors"
-            >
-              LinkedIn
-            </a>
-          </div>
         </div>
       </div>
     </section>

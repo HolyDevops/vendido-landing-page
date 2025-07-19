@@ -5,7 +5,7 @@ import { SimpleFooter } from '../components/SimpleFooter';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-brand-black">
+    <div className="min-h-screen bg-background">
       <HeroSection />
       <SimpleFooter />
     </div>

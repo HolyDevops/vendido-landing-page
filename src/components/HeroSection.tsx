@@ -36,8 +36,13 @@ export const HeroSection: React.FC = () => {
     try {
       console.log('Lead captured:', data);
       
-      // Integração com Google Sheets
-      await sendToGoogleSheets(data);
+      // Garantir que os dados estão presentes antes de enviar
+      if (data.name && data.email) {
+        await sendToGoogleSheets({
+          name: data.name,
+          email: data.email
+        });
+      }
       
       setIsSubmitted(true);
       

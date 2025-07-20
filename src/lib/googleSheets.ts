@@ -6,9 +6,8 @@ interface LeadData {
 
 export const sendToGoogleSheets = async (data: LeadData): Promise<void> => {
   try {
-    // Esta URL precisa ser substituída pela URL do seu Google Apps Script
-    // Siga as instruções em GOOGLE_SHEETS_SETUP.md
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+    // URL do seu Google Apps Script
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxe5qL4nxlrlebeoH6tUNMN4JtbC2sF9T2At-4DDUrvtMwW31IcsL8NT9PWz5mT3Sydpw/exec';
     
     const payload = {
       name: data.name,

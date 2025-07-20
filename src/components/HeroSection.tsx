@@ -7,6 +7,8 @@ import { Mail, User, CheckCircle, Loader2, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
+import { sendToGoogleSheets } from '@/lib/googleSheets';
+import { useToast } from '@/hooks/use-toast';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Nome deve ter pelo menos 2 caracteres'),
@@ -18,6 +20,7 @@ type FormData = z.infer<typeof formSchema>;
 export const HeroSection: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -30,17 +33,29 @@ export const HeroSection: React.FC = () => {
   const onSubmit = async (data: FormData) => {
     setIsLoading(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Lead captured:', data);
-    
-    // TODO: Integração com Google Sheets
-    // Aqui você conectará com a API do Google Sheets para salvar os dados
-    // Exemplo: await sendToGoogleSheets(data);
-    
-    setIsLoading(false);
-    setIsSubmitted(true);
+    try {
+      console.log('Lead captured:', data);
+      
+      // Integração com Google Sheets
+      await sendToGoogleSheets(data);
+      
+      setIsSubmitted(true);
+      
+      toast({
+        title: "Sucesso!",
+        description: "Seus dados foram salvos com sucesso. Verifique seu e-mail!",
+      });
+    } catch (error) {
+      console.error('Erro ao processar formulário:', error);
+      
+      toast({
+        title: "Erro",
+        description: "Houve um problema ao salvar seus dados. Tente novamente.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (isSubmitted) {
